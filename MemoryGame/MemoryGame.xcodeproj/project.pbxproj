@@ -15,6 +15,10 @@
 		31623E5D1CA5F09D00695940 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31623E571CA5F09D00695940 /* Card.swift */; };
 		31623E5E1CA5F09D00695940 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31623E581CA5F09D00695940 /* MemoryGame.swift */; };
 		31623E5F1CA5F09D00695940 /* CardCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31623E5A1CA5F09D00695940 /* CardCVC.swift */; };
+		3186EB191CC305A100748ADC /* CustomizeCardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186EB181CC305A100748ADC /* CustomizeCardsTableViewController.swift */; };
+		318D537D1CC310E000FEA3ED /* UIImage+Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D537C1CC310E000FEA3ED /* UIImage+Downloader.swift */; };
+		31A7CBC01CC2ECFC0047F3CF /* ScoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7CBBF1CC2ECFC0047F3CF /* ScoresTableViewController.swift */; };
+		31A7CBC21CC2F7910047F3CF /* Highscores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7CBC11CC2F7910047F3CF /* Highscores.swift */; };
 		31E1EF5E1CC2E125009F4180 /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1EF5D1CC2E125009F4180 /* Array+Shuffle.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		31623E571CA5F09D00695940 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		31623E581CA5F09D00695940 /* MemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		31623E5A1CA5F09D00695940 /* CardCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCVC.swift; sourceTree = "<group>"; };
+		3186EB181CC305A100748ADC /* CustomizeCardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeCardsTableViewController.swift; sourceTree = "<group>"; };
+		318D537C1CC310E000FEA3ED /* UIImage+Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Downloader.swift"; sourceTree = "<group>"; };
+		31A7CBBF1CC2ECFC0047F3CF /* ScoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresTableViewController.swift; sourceTree = "<group>"; };
+		31A7CBC11CC2F7910047F3CF /* Highscores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highscores.swift; sourceTree = "<group>"; };
 		31E1EF5D1CC2E125009F4180 /* Array+Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				31623E551CA5F09D00695940 /* GameViewController.swift */,
+				31A7CBBF1CC2ECFC0047F3CF /* ScoresTableViewController.swift */,
+				3186EB181CC305A100748ADC /* CustomizeCardsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -88,6 +98,7 @@
 			children = (
 				31623E571CA5F09D00695940 /* Card.swift */,
 				31623E581CA5F09D00695940 /* MemoryGame.swift */,
+				31A7CBC11CC2F7910047F3CF /* Highscores.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				31E1EF5D1CC2E125009F4180 /* Array+Shuffle.swift */,
+				318D537C1CC310E000FEA3ED /* UIImage+Downloader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,6 +193,10 @@
 			files = (
 				31623E5C1CA5F09D00695940 /* GameViewController.swift in Sources */,
 				31E1EF5E1CC2E125009F4180 /* Array+Shuffle.swift in Sources */,
+				318D537D1CC310E000FEA3ED /* UIImage+Downloader.swift in Sources */,
+				31A7CBC21CC2F7910047F3CF /* Highscores.swift in Sources */,
+				31A7CBC01CC2ECFC0047F3CF /* ScoresTableViewController.swift in Sources */,
+				3186EB191CC305A100748ADC /* CustomizeCardsTableViewController.swift in Sources */,
 				31623E411CA5E40400695940 /* AppDelegate.swift in Sources */,
 				31623E5F1CA5F09D00695940 /* CardCVC.swift in Sources */,
 				31623E5E1CA5F09D00695940 /* MemoryGame.swift in Sources */,
@@ -295,11 +311,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielts.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -307,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

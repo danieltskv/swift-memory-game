@@ -28,7 +28,18 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         resetGame()
     }
 
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if gameController.isPlaying {
+            resetGame()
+        }
+    }
+    
+    // MARK: - Methods
+
     func resetGame() {
+        gameController.stopGame()
         if timer?.valid == true {
             timer?.invalidate()
             timer = nil
@@ -36,6 +47,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.userInteractionEnabled = false
         collectionView.reloadData()
         timerLabel.text = String(format: "%@: ---", NSLocalizedString("TIME", comment: "time"))
+        playButton.setTitle(NSLocalizedString("Play", comment: "play"), forState: .Normal)
     }
     
     @IBAction func didPressPlayButton() {
@@ -49,20 +61,16 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setupNewGame() {
-        let cardsData:[UIImage] = [
-            UIImage(named: "brand1")!,
-            UIImage(named: "brand2")!,
-            UIImage(named: "brand3")!,
-            UIImage(named: "brand4")!,
-            UIImage(named: "brand5")!,
-            UIImage(named: "brand6")!
-        ];
-        
+        let cardsData:[UIImage] = MemoryGame.defaultCardImages
         gameController.newGame(cardsData)
     }
     
     func gameTimerAction() {
         timerLabel.text = String(format: "%@: %.0fs", NSLocalizedString("TIME", comment: "time"), gameController.elapsedTime)
+    }
+    
+    func savePlayerScore(name: String, score: NSTimeInterval) {
+        Highscores.sharedInstance.saveHighscore(name, score: score)
     }
     
     // MARK: - UICollectionViewDataSource
@@ -118,7 +126,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func memoryGame(game: MemoryGame, showCards cards: [Card]) {
         for card in cards {
-            let index = gameController.indexForCard(card)
+            guard let index = gameController.indexForCard(card) else { continue }
             let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection:0)) as! CardCVC
             cell.showCard(true, animted: true)
         }
@@ -126,7 +134,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func memoryGame(game: MemoryGame, hideCards cards: [Card]) {
         for card in cards {
-            let index = gameController.indexForCard(card)
+            guard let index = gameController.indexForCard(card) else { continue }
             let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection:0)) as! CardCVC
             cell.showCard(false, animted: true)
         }
@@ -136,10 +144,31 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func memoryGameDidEnd(game: MemoryGame, elapsedTime: NSTimeInterval) {
         timer?.invalidate()
 
+        let elapsedTime = gameController.elapsedTime
+        
         let alertController = UIAlertController(
             title: NSLocalizedString("Hurrah!", comment: "title"),
-            message: String(format: "%@ %.0fs", NSLocalizedString("You finished the game in", comment: "message"), gameController.elapsedTime),
+            message: String(format: "%@ %.0fs", NSLocalizedString("You finished the game in", comment: "message"), elapsedTime),
             preferredStyle: .Alert)
+        
+        let saveScoreAction = UIAlertAction(title: NSLocalizedString("Save Score", comment: "save score"), style: .Default) { [weak self] (_) in
+            let nameTextField = alertController.textFields![0] as UITextField
+            guard let name = nameTextField.text else { return }
+            self?.savePlayerScore(name, score: elapsedTime)
+            self?.resetGame()
+        }
+        saveScoreAction.enabled = false
+        alertController.addAction(saveScoreAction)
+
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = NSLocalizedString("Your name", comment: "your name")
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification,
+                object: textField,
+                queue: NSOperationQueue.mainQueue()) { (notification) in
+                saveScoreAction.enabled = textField.text != ""
+            }
+        }
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("Dismiss", comment: "dismiss"), style: .Cancel) { [weak self] (action) in
             self?.resetGame()
@@ -147,8 +176,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true) { }
-        
-
     }
     
 

@@ -31,10 +31,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mw3-xm-fN6" userLabel="play">
-                                <rect key="frame" x="22" y="510" width="103" height="30"/>
+                                <rect key="frame" x="22" y="469" width="103" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="116-ln-7U7"/>
-                                    <constraint firstAttribute="width" constant="103" id="QO5-mh-jN4"/>
+                                    <constraint firstAttribute="height" constant="30" id="6TZ-mH-6qn"/>
+                                    <constraint firstAttribute="width" constant="103" id="wKf-HU-Nkt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="26"/>
                                 <state key="normal" title="PLAY">
@@ -44,11 +44,25 @@
                                     <action selector="didPressPlayButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="9KS-1s-obs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME: ---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPK-H0-NFS" userLabel="time">
-                                <rect key="frame" x="118" y="498" width="187" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-mx-Gmh" userLabel="play">
+                                <rect key="frame" x="22" y="506" width="103" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="BJL-PL-ukF"/>
-                                    <constraint firstAttribute="width" constant="187" id="hX2-wz-sVn"/>
+                                    <constraint firstAttribute="height" constant="46" id="LIq-Lc-Blh"/>
+                                    <constraint firstAttribute="width" constant="103" id="mp8-Wy-Bt5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                <state key="normal" title="Scores">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bLw-3p-fGG" kind="push" id="LpZ-8U-OKo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME: ---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPK-H0-NFS" userLabel="time">
+                                <rect key="frame" x="118" y="457" width="187" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="5oF-4X-JD8"/>
+                                    <constraint firstAttribute="height" constant="54" id="MGn-Lq-d2O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,11 +89,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_11-128" translatesAutoresizingMaskIntoConstraints="NO" id="FsU-iU-TJz" userLabel="image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_11-128" translatesAutoresizingMaskIntoConstraints="NO" id="FsU-iU-TJz" userLabel="image">
                                                     <rect key="frame" x="10" y="10" width="60" height="60"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hwt-Ce-Sr3" userLabel="image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hwt-Ce-Sr3" userLabel="image">
                                                     <rect key="frame" x="10" y="10" width="60" height="60"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -117,19 +131,37 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="tCM-Z7-oIM"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-ER-cem" userLabel="play">
+                                <rect key="frame" x="167" y="507" width="83" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="bYb-x6-ZE8"/>
+                                    <constraint firstAttribute="height" constant="46" id="opb-Sa-cRE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                <state key="normal" title="Cards">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EQc-og-U7V" kind="push" id="f1h-vj-jMj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c8H-ER-cem" secondAttribute="bottom" constant="15" id="1nC-VU-gCT"/>
                             <constraint firstItem="bYq-fF-RPI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="3kU-OT-cUh"/>
+                            <constraint firstItem="mw3-xm-fN6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="6DJ-oK-B67"/>
                             <constraint firstItem="F2z-1U-7ru" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="AMy-pX-Nh7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F2z-1U-7ru" secondAttribute="bottom" id="EX6-kd-RCz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mw3-xm-fN6" secondAttribute="bottom" constant="28" id="HKH-2K-u4V"/>
+                            <constraint firstAttribute="trailing" secondItem="PPK-H0-NFS" secondAttribute="trailing" constant="15" id="INP-vB-eV9"/>
                             <constraint firstItem="bYq-fF-RPI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lgd-jW-Nv3"/>
                             <constraint firstItem="0jR-Ru-IrD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R14-k6-uzk"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PPK-H0-NFS" secondAttribute="bottom" constant="16" id="cPB-DZ-seD"/>
-                            <constraint firstItem="mw3-xm-fN6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="dtO-W7-GEL"/>
+                            <constraint firstItem="AqY-mx-Gmh" firstAttribute="top" secondItem="mw3-xm-fN6" secondAttribute="bottom" constant="7" id="aBs-HE-n20"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AqY-mx-Gmh" secondAttribute="bottom" constant="16" id="dAT-Rz-QEu"/>
+                            <constraint firstItem="AqY-mx-Gmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="enB-hX-ROn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PPK-H0-NFS" secondAttribute="bottom" constant="57" id="fCq-w7-TNr"/>
                             <constraint firstAttribute="trailing" secondItem="F2z-1U-7ru" secondAttribute="trailing" id="gIl-mX-251"/>
-                            <constraint firstAttribute="trailing" secondItem="PPK-H0-NFS" secondAttribute="trailing" constant="15" id="rXK-FV-VnC"/>
+                            <constraint firstAttribute="trailing" secondItem="c8H-ER-cem" secondAttribute="trailing" constant="70" id="jAh-MH-9E5"/>
                             <constraint firstItem="0jR-Ru-IrD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="w48-mv-ZaU"/>
                             <constraint firstItem="F2z-1U-7ru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="x7N-Xa-c8R"/>
                         </constraints>
@@ -145,15 +177,62 @@
             </objects>
             <point key="canvasLocation" x="361" y="406"/>
         </scene>
+        <!--High Scores-->
+        <scene sceneID="X16-7e-Ppk">
+            <objects>
+                <tableViewController id="bLw-3p-fGG" customClass="ScoresTableViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xc7-Y9-VwV">
+                        <rect key="frame" x="0.0" y="74" width="320" height="494"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" textLabel="oBC-bP-DTa" detailTextLabel="dA2-nS-svG" style="IBUITableViewCellStyleValue1" id="vbO-lw-Exj">
+                                <rect key="frame" x="0.0" y="50" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbO-lw-Exj" id="D1g-7F-b20">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="1. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oBC-bP-DTa">
+                                            <rect key="frame" x="15" y="12" width="58" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="34s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dA2-nS-svG">
+                                            <rect key="frame" x="277" y="12" width="28" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bLw-3p-fGG" id="cFE-PT-GyX"/>
+                            <outlet property="delegate" destination="bLw-3p-fGG" id="qsh-AG-53B"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="High Scores" prompt="Press on a cell to show score" id="SA3-y1-jP6"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKc-43-2Lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="406"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="juY-Eb-wS2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="AC5-l6-RKr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LWu-pv-mV4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="LWu-pv-mV4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -164,9 +243,66 @@
             </objects>
             <point key="canvasLocation" x="-64" y="406"/>
         </scene>
+        <!--Cards-->
+        <scene sceneID="RoF-H0-I2R">
+            <objects>
+                <tableViewController id="EQc-og-U7V" customClass="CustomizeCardsTableViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="74d-Hk-NFv">
+                        <rect key="frame" x="0.0" y="74" width="320" height="494"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardCell" id="WQn-W6-BNm">
+                                <rect key="frame" x="0.0" y="50" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WQn-W6-BNm" id="j6c-dM-E8a">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand1" translatesAutoresizingMaskIntoConstraints="NO" id="Kz3-z4-gjM">
+                                            <rect key="frame" x="255" y="7" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="kXr-gy-fqi"/>
+                                                <constraint firstAttribute="height" constant="50" id="mon-E0-i25"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRV-sh-BRc">
+                                            <rect key="frame" x="15" y="14" width="232" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="232" id="r39-Ue-cbn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Kz3-z4-gjM" secondAttribute="trailing" constant="15" id="7VJ-WF-sct"/>
+                                        <constraint firstItem="eRV-sh-BRc" firstAttribute="leading" secondItem="j6c-dM-E8a" secondAttribute="leading" constant="15" id="Oh3-AG-uVs"/>
+                                        <constraint firstAttribute="bottom" secondItem="eRV-sh-BRc" secondAttribute="bottom" constant="15" id="lmb-ia-ZXl"/>
+                                        <constraint firstItem="Kz3-z4-gjM" firstAttribute="centerY" secondItem="j6c-dM-E8a" secondAttribute="centerY" id="uvW-b4-iQq"/>
+                                        <constraint firstItem="eRV-sh-BRc" firstAttribute="top" secondItem="j6c-dM-E8a" secondAttribute="top" constant="14" id="ywp-WJ-Ft5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EQc-og-U7V" id="iem-6A-CXi"/>
+                            <outlet property="delegate" destination="EQc-og-U7V" id="oPW-Cf-ISz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cards" prompt="Press on a cell to change card" id="nUU-tX-KKk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whn-cK-nRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="1147"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1_11-128" width="63" height="64"/>
         <image name="Shapes-Black-Wallpaper-iPhone-6-Plus" width="1242" height="2208"/>
+        <image name="brand1" width="85" height="85"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

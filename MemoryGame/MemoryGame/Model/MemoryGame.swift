@@ -24,6 +24,15 @@ class MemoryGame {
     
     // MARK: - Properties
 
+    static var defaultCardImages:[UIImage] = [
+        UIImage(named: "brand1")!,
+        UIImage(named: "brand2")!,
+        UIImage(named: "brand3")!,
+        UIImage(named: "brand4")!,
+        UIImage(named: "brand5")!,
+        UIImage(named: "brand6")!
+    ];
+
     var cards:[Card] = [Card]()
     var delegate: MemoryGameDelegate?
     var isPlaying: Bool = false
@@ -95,13 +104,13 @@ class MemoryGame {
         }
     }
     
-    func indexForCard(card: Card) -> Int {
+    func indexForCard(card: Card) -> Int? {
         for index in 0...cards.count-1 {
             if card === cards[index] {
                 return index
             }
         }
-        return NSNotFound
+        return nil
     }
     
     private func finishGame() {

@@ -148,7 +148,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let alertController = UIAlertController(
             title: NSLocalizedString("Hurrah!", comment: "title"),
-            message: String(format: "%@ %.0fs", NSLocalizedString("You finished the game in", comment: "message"), elapsedTime),
+            message: String(format: "%@ %.0f seconds", NSLocalizedString("You finished the game in", comment: "message"), elapsedTime),
             preferredStyle: .Alert)
         
         let saveScoreAction = UIAlertAction(title: NSLocalizedString("Save Score", comment: "save score"), style: .Default) { [weak self] (_) in

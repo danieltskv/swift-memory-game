@@ -67,6 +67,7 @@ class MemoryGame {
     func stopGame() {
         isPlaying = false
         cards.removeAll()
+        cardsShown.removeAll()
         startTime = nil
     }
     

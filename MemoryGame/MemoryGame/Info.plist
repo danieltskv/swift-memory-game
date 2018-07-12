@@ -40,5 +40,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses camera to take a picture for card image change function</string>
 </dict>
 </plist>

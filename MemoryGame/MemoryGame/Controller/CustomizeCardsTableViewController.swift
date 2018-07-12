@@ -147,7 +147,7 @@ class CustomizeCardsTableViewController: UITableViewController, UIImagePickerCon
   
   // MARK: - UIImagePickerControllerDelegate
   
-  private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     picker.dismiss(animated: true, completion: nil)
     
     guard let selectedIndexPath = selectedIndexPath else { return }

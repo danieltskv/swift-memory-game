@@ -9,54 +9,54 @@
 import UIKit.UICollectionViewCell
 
 class CardCVC: UICollectionViewCell {
-    
-    // MARK: - Properties
-
-    @IBOutlet weak var frontImageView: UIImageView!
-    @IBOutlet weak var backImageView: UIImageView!
-    
-    var card:Card? {
-        didSet {
-            guard let card = card else { return }
-            frontImageView.image = card.image
-        }
+  
+  // MARK: - Properties
+  
+  @IBOutlet weak var frontImageView: UIImageView!
+  @IBOutlet weak var backImageView: UIImageView!
+  
+  var card:Card? {
+    didSet {
+      guard let card = card else { return }
+      frontImageView.image = card.image
     }
+  }
+  
+  private(set) var shown: Bool = false
+  
+  // MARK: - Methods
+  
+  func showCard(show: Bool, animted: Bool) {
+    frontImageView.isHidden = false
+    backImageView.isHidden = false
+    shown = show
     
-    private(set) var shown: Bool = false
-    
-    // MARK: - Methods
-
-    func showCard(show: Bool, animted: Bool) {
-        frontImageView.hidden = false
-        backImageView.hidden = false
-        shown = show
-
-        if animted {
-            if show {
-                UIView.transitionFromView(backImageView,
-                    toView: frontImageView,
-                    duration: 0.5,
-                    options: [.TransitionFlipFromRight, .ShowHideTransitionViews],
-                    completion: { (finished: Bool) -> () in
-                    })
-            } else {
-                UIView.transitionFromView(frontImageView,
-                    toView: backImageView,
-                    duration: 0.5,
-                    options: [.TransitionFlipFromRight, .ShowHideTransitionViews],
-                    completion:  { (finished: Bool) -> () in
-                    })
-            }
-        } else {
-            if show {
-                bringSubviewToFront(frontImageView)
-                backImageView.hidden = true
-            } else {
-                bringSubviewToFront(backImageView)
-                frontImageView.hidden = true
-            }
-        }
+    if animted {
+      if show {
+        UIView.transition(from: backImageView,
+                          to: frontImageView,
+                          duration: 0.5,
+                          options: [.transitionFlipFromRight, .showHideTransitionViews],
+                          completion: { (finished: Bool) -> () in
+        })
+      } else {
+        UIView.transition(from: frontImageView,
+                          to: backImageView,
+                          duration: 0.5,
+                          options: [.transitionFlipFromRight, .showHideTransitionViews],
+                          completion:  { (finished: Bool) -> () in
+        })
+      }
+    } else {
+      if show {
+        bringSubview(toFront: frontImageView)
+        backImageView.isHidden = true
+      } else {
+        bringSubview(toFront: backImageView)
+        frontImageView.isHidden = true
+      }
     }
-    
-
+  }
+  
+  
 }

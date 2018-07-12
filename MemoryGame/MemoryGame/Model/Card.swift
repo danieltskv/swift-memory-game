@@ -32,7 +32,7 @@ class Card : CustomStringConvertible {
     // MARK: - Methods
 
     var description: String {
-        return "\(id.UUIDString)"
+      return "\(id.uuidString)"
     }
     
     func equals(card: Card) -> Bool {

@@ -34,8 +34,10 @@ class CustomizeCardsTableViewController: UITableViewController, UIImagePickerCon
   
   // MARK: - Methods
   
-  private func didPressChangeCard(index: Int) {
+  private func didPressChangeCard(index: Int, sender: UIView?) {
     let alertController = UIAlertController(title: NSLocalizedString("Select card image source:", comment: "-"), message: nil, preferredStyle: .actionSheet)
+    
+    alertController.popoverPresentationController?.sourceView = sender
     
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
       let PhotoLibraryAction = UIAlertAction(title: NSLocalizedString("Photo Library", comment: "pl"), style: .default) { [weak self] (action) in
@@ -138,9 +140,9 @@ class CustomizeCardsTableViewController: UITableViewController, UIImagePickerCon
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-    
+    let imageView = tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(2) as! UIImageView
     selectedIndexPath = indexPath
-    didPressChangeCard(index: indexPath.row)
+    didPressChangeCard(index: indexPath.row, sender: imageView)
   }
   
   // MARK: - UIImagePickerControllerDelegate
